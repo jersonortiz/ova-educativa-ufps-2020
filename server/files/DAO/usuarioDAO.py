@@ -21,6 +21,17 @@ class usuarioDAO(object):
 			return usuarioDTO(val[0][0],val[0][1],val[0][2],val[0][3],val[0][4],val[0][5])
 		else:
 			return False
+
+	def find(self,idu ):
+		con = Conexion()
+		sql = "SELECT * FROM usuario where correo = %s"
+		data= (idu,)
+		val= con.find(sql,data)
+		if val:
+			print(str(val))
+			return usuarioDTO(val[0][0],val[0][1],val[0][2],val[0][3],val[0][4],val[0][5])
+		else:
+			return False
 		
 	def delete(self ,idu):
 		con = Conexion()

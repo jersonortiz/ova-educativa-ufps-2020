@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request ,make_response
+from flask_cors import CORS
 from files.DTO.DTO import *
 from files.DAO.grupoDAO import grupoDAO
 from files.DAO.pendienteDAO import pendienteDAO
@@ -7,9 +8,59 @@ from files.DAO.respuestaDAO import respuestaDAO
 from files.DAO.temaDAO import temaDAO
 from files.DAO.usuarioDAO import usuarioDAO
 from files.util.conexion import Conexion
+import datetime
 import json
+import jwt
+
+def encode_auth_token(user):
+    """
+    Generates the Auth Token
+    :return: string
+    """
+    try:
+        payload = {
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=1, seconds=5),
+            'iat': datetime.datetime.utcnow(),
+            'id': user.idu,
+            'nombre': user.nombre,
+            'apellido': user.apellido,
+            'correo': user.correo,
+            'tipo': user.tipo
+        }
+
+        return jwt.encode(
+            payload,
+            'secret',
+            algorithm='HS256'
+            )
+    except Exception as e:
+        return e
+
+def decode_auth_token(auth_token):
+    """
+    Decodes the auth token
+    :param auth_token:
+    :return: integer|string
+    """
+    try:
+        payload = jwt.decode(auth_token, 'secret')
+        return usuarioDTO(payload['id'],payload['nombre'],payload['apellido'],payload['correo'],'',payload['tipo'])
+    except jwt.ExpiredSignatureError:
+        return 'Signature expired. Please log in again.'
+    except jwt.InvalidTokenError:
+        return 'Invalid token. Please log in again.'
+
+def validate_auth_token(auth_token):
+    payload = jwt.decode(auth_token, 'secret')
+    a = datetime.now()
+    a = int(a.strftime('%Y%m%d'))
+    if(a< int(payload['exp'])):
+        return True
+    return False
+
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello_world():
@@ -18,23 +69,19 @@ def hello_world():
 @app.route('/login',methods=['GET', 'POST'])
 def login():
     print (request.is_json)
-    content = json.loads(request.get_json())
-    print (content)
-    print(content['name'])
+    content = request.get_json()
+    #content = json.loads(request.get_json())
+    user= content.get('user')
+    passw= content.get('password')
+    #return passw
     u = usuarioDAO()
-    us1= u.select(content['name'])
+    us1= u.find(user)
     if us1:
-        print(str(us1))
-        print(json.dumps({'status':'unknow'}))
-
-        if len(us1.nombre) is 0:
-            return json.dumps({'status':'unknow'})
-        return json.dumps({'status':'logged'})
-
-    return 'ola'
-
-
-    
+        if us1.correo == user and us1.contraseña == passw:
+            token = encode_auth_token(us1)
+            print(token)
+            #return token
+            return json.dumps({'token':str(token)})
 
 
 @app.route('/registro',methods=['GET', 'POST'])
@@ -51,37 +98,6 @@ def registro():
         return json.dumps({'status':'registered'})
     else:
         return json.dumps({'status':'fail'})
-
-@app.route('/list',methods=['GET', 'POST'])
-def listas():
-    #print (request.is_json)
-    content = json.loads(request.get_json())
-    #print (content)
-
-    u = usuarioDAO()
-    us1= u.select(content['name'])
-    #print(str(us1))
-
-    l = listaDAO()
-    ls1 = l.select(us1.idu)
-    #print(str(ls1))
-
-    c = cancionDAO()
-    cs1 = c.select(ls1.lid)
-    #print(str(cs1[0]))
-
-    date= []
-
-    for x in cs1:
-        se = { 
-            'name': x.nombre,
-            'file':x.archivo
-            }
-        date.append(se)
-
-    return json.dumps(date)
-
-
 
 
 if __name__ == "__main__":

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script src="../dist/js/config.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCM- Iniciar sesion</title>
+  <meta charset="UTF-8" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/css/login.css">
+
+
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+
+    <div class="card">
+      <div class="card-body login-card-body">
+
+        <div class="login-logo">
+          <img src="../dist/img/logo.png" alt="Logo" />
+        </div>
+
+        <form method="" id="loginform">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="cod" id="cod" placeholder="1150000" required />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="pass" id="pass" placeholder="******" required="" />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- /.col -->
+            <div class="col-4">
+              <button id="login" class="btn btn-primary btn-block btn-flat">Entrar</button>
+            </div>
+            <!-- /.col -->
+          </div>
+
+          <div id="msjerr">
+          </div>
+
+
+          <p class="mb-1">
+            <a href="#" id="to-recover">Olvido su contraseña?</a>
+          </p>
+          <p class="mb-1">
+            <a href="registro.html">No tiene cuenta? Registrese aqui</a>
+          </p>
+
+        </form>
+
+        <form id="recoverform" action="#" class="form-vertical">
+
+          <p class="normal_text">Ingrese su correo electronico para enviarle un correo de recuperacion</p>
+
+          <div id="msj2">
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" name="reccorreo" id="reccorreo" placeholder="algo@dominio.algo"
+              required />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-8">
+              <button id="recuperar" class="btn btn-primary btn-block btn-flat">Recuperar</button>
+            </div>
+
+            <div class="col-4">
+              <a href="#" id="to-login">Regresar al login</a>
+            </div>
+
+          </div>
+
+          <div id="msjrecu">
+          </div>
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../dist/js/adminlte.min.js"></script>
+  <script src="../dist/js/login.js"></script>
+  <script src="../dist/js/events.js"></script>
+
+</body>
+
+</html>

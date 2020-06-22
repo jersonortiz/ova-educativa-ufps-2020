@@ -2,7 +2,7 @@ class usuarioDTO:
 
 	def __init__(self,idu,nom,apel ,corr,passw,tip):
 		self.idu=str(idu)
-		self.nombre==str(nom)
+		self.nombre=str(nom)
 		self.apellido=str(apel)
 		self.correo=str(corr)
 		self.contraseña=str(passw)
