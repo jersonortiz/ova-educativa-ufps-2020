@@ -32,21 +32,22 @@ function loginfunc(event) {
             .then(function (data) {
                 if (data) {
                     let token = data.token;
-                    //sessionStorage.setItem("USER_TOKEN", token);
+                    sessionStorage.setItem("GEV_OVA_USER_TOKEN", token);
                     console.log(token);
 
                     let re = JSON.parse(atob(token.split('.')[1]));
+                    sessionStorage.setItem("GEV_OVA_USER_DATA", re);
                     console.log(re)
-                    console.log(re.correo)
+                    console.log(re.tipo)
 
                     switch (re.tipo) {
-                        case 1:
+                        case '1':
                             location.href = "ovaresources/gev/index.html";
                             break;
-                        case 2:
+                        case '2':
                             location.href = "docente/dashboard.html";
                             break;
-                        case 3:
+                        case '3':
                             location.href = "admin/dashboard.html";
                             break;
                     }

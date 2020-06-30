@@ -1,52 +1,134 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+    <head>
+        <script src="../dist/js/config.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Generalidades de la educacion virtual</title>
+        <meta charset="UTF-8" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- icheck bootstrap -->
+        <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="../dist/css/login.css">
 
-<head>
-    <script src="../dist/js/config.js"></script>
-    <meta charset="utf-8" />
-    <title>Inicia sesión o regístrate</title>
-    <link rel="stylesheet" type="text/css" href="../dist/css/styles.css" />
-</head>
+    </head>
 
-<body>
-    <div id="login">
-        <nav id="menu">
-            <ul>
-                <li><a href="#" id="to-regist">Registrar</a></li>
-                <li  ><a href="#" id="to-login">Ingresar</a></li>
-            </ul>
-        </nav>
-        <div class="title">
-            <h1>Bienvenido</h1>
-        </div>
-        <div class="content">
+    <body class="hold-transition login-page">
+        <div class="login-box">
 
-            <form action="#"  id="loginform">
-                <input type="email" name="txtUser" id="txtUser" placeholder="Correo" required />
-                <br>
-                <input type="password" name="txtPass" id="txtPass" placeholder="Contraseña" required />
-                <a href="#">¿Olvidaste tu contraseña?</a>
-                <button class="btnSubmit" id="btnlogin">Ingresar</button>
-            </form>
+            <div id="login" class="card">
+                <div class="card-body login-card-body">
 
-            <form action="#"  id="registform">
+                    <div class="login-logo">
+                        <img src="../dist/img/logo.png" alt="Logo" />
+                    </div>
 
-                <input type="text" name="registnom" id="registnom" placeholder="Nombre" required />
-                <input type="text" name="registapell" id="registapell" placeholder="Apellido" required />
-                <input type="email" name="registEmail" id="registEmail" placeholder="Correo" required />
-                <input type="password" name="registPass" id="registPass" placeholder="Contraseña" required />
-                <input type="text" name="tipousr" id="tipousr" placeholder="tipo" required />
-                <button class="btnSubmit" id="btnregist">Registrar</button>
-            </form>
+                    <form method="" id="loginform">
 
-            <div id="msjerr">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="txtUser" id="txtUser" placeholder="Correo"  required />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="txtPass" id="txtPass"  placeholder="Contraseña" required/>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button id="btnlogin" class="btn btn-primary btn-block btn-flat">
+                                    Entrar
+                                </button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                        <div id="msjerr">
+                        </div>
+
+                        <p class="mb-1">
+                            <a id="to-regist" href="#">No tiene cuenta? Registrese aqui</a>
+                        </p>
+
+                    </form>
+
+                    <form id="registform" action="#" class="form-vertical">
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" type="text" name="registnom" id="registnom" placeholder="Nombre" required />
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="registapell" id="registapell" placeholder="Apellido" required />
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="registEmail" id="registEmail" placeholder="Correo" required />
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="registPass" id="registPass" placeholder="Contraseña" required />
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="verifyPass" id="verifyPass" placeholder="verificar Contraseña" required/>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="tipousr" id="tipousr" placeholder="tipo" required />
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-8">
+                                <button id="btnregist" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                            </div>
+
+                        </div>
+
+                        <div id="msjrecu">
+                        </div>
+
+                        <div class="col-4">
+                            <a href="#" id="to-login">
+                                Ya tiene una cuenta , regresar al inicio de sesion
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="../plugins/jquery/jquery.min.js"></script>
-    <script src="../dist/js/login.js"></script>
-    <script src="../dist/js/events.js"></script>
-</body>
+
+        <script src="../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../dist/js/adminlte.min.js"></script>
+        <script src="../dist/js/login.js"></script>
+        <script src="../dist/js/events.js"></script>
+
+    </body>
 
 </html>

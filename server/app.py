@@ -77,7 +77,7 @@ def login():
     usi= u.find(user)
     if usi:
         if usi.correo == user and usi.contraseña == passw:
-            token = encode_auth_token(us1)
+            token = encode_auth_token(usi)
             return json.dumps({'token':str(token)})
 
 

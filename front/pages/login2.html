@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <script src="../dist/js/config.js"></script>
+    <meta charset="utf-8" />
+    <title>Inicia sesión o regístrate</title>
+    <link rel="stylesheet" type="text/css" href="../dist/css/styles.css" />
+</head>
+
+<body>
+    <div id="login">
+        <nav id="menu">
+            <ul>
+                <li><a href="#" id="to-regist">Registrar</a></li>
+                <li  ><a href="#" id="to-login">Ingresar</a></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <h1>Bienvenido</h1>
+        </div>
+        <div class="content">
+
+            <form action="#"  id="loginform">
+                <input type="email" name="txtUser" id="txtUser" placeholder="Correo" required />
+                <br>
+                <input type="password" name="txtPass" id="txtPass" placeholder="Contraseña" required />
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button class="btnSubmit" id="btnlogin">Ingresar</button>
+            </form>
+
+            <form action="#"  id="registform">
+
+                <input type="text" name="registnom" id="registnom" placeholder="Nombre" required />
+                <input type="text" name="registapell" id="registapell" placeholder="Apellido" required />
+                <input type="email" name="registEmail" id="registEmail" placeholder="Correo" required />
+                <input type="password" name="registPass" id="registPass" placeholder="Contraseña" required />
+                <input type="text" name="tipousr" id="tipousr" placeholder="tipo" required />
+                <button class="btnSubmit" id="btnregist">Registrar</button>
+            </form>
+
+            <div id="msjerr">
+            </div>
+        </div>
+    </div>
+
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="../dist/js/login.js"></script>
+    <script src="../dist/js/events.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ class Conexion:
     
     user="pmauser"
     passw="ortizcalderon"
-    hos="3.133.142.118"
+    hos="18.222.117.126"
     db="ovaeducativa"
     mydb=None
     
