@@ -1,15 +1,14 @@
 
-function responsesend() {
+function responsesend(datares) {
     event.preventDefault();
     userdat= sessionStorage.getItem("GEV_OVA_USER_DATA");
     token= sessionStorage.getItem("GEV_OVA_USER_TOKEN");
 
-    let url = serverurl + 'login';
-    let usr = document.getElementById("txtUser").value;
-    let pass = document.getElementById("txtPass").value;
-    let auth = {};
-    let data = {user: usr, password: pass};
+    let url = serverurl + 'responder';
+
+    let data = datares;
     console.log(data);
+
     let init = {
         method: 'POST',
         headers: {
@@ -34,34 +33,16 @@ function responsesend() {
                     console.log(re)
                     console.log(re.correo)
 
-                    switch (re.tipo) {
-                        case 1:
-                            location.href = "ovaresources/gev/index.html";
-                            break;
-                        case 2:
-                            location.href = "docente/dashboard.html";
-                            break;
-                        case 3:
-                            location.href = "admin/dashboard.html";
-                            break;
-                    }
+               
                     
                 } else {
 
-                    let msjdiv = document.getElementById("msjerr");
-                    msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-warning alert-dismissible">' +
-                            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                            '<h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>' +
-                            'contraseña incorreta</div>');
+                 
                 }
             })
             .catch(function (err) {
                 console.log(err);
-                let msjdiv = document.getElementById("msjerr");
-                msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-warning alert-dismissible">' +
-                        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                        '<h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>' +
-                        'error de conexion , no se puede conectar con el servidor</div>');
+        
             });
 
 }

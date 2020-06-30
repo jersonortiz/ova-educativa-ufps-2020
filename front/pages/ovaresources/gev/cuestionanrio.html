@@ -140,6 +140,13 @@
                             var question4;
                             var question5;
                             var question6;
+                            var question0key=1;
+                            var question1key=2;
+                            var question2key=3;
+                            var question3key=4;
+                            var question4key=5;
+                            var question5key=6;
+                            var question6key=7;
                             var key0 = 0;
                             var key1 = 2;
                             var key2 = 0;
@@ -214,6 +221,7 @@
                             }
                             function calcRawScore() {
 
+
                                 if (question0 == key0)
                                 {
                                     rawScore++;
@@ -245,10 +253,52 @@
 
                             }
 
+                            function sendbd(){
+                                console.log('hola')
+                                data={
+                                    respuestas : [
+                                    {
+                                        resp:question0,
+                                        bdkey:question0key
+                                    },
+                                    {
+                                        resp:question1,
+                                        bdkey:question1key
+                                    },
+                                    {
+                                        resp:question2,
+                                        bdkey:question2key
+                                    },
+                                    {
+                                        resp:question3,
+                                        bdkey:question3key
+                                    },
+                                    {
+                                        resp:question4,
+                                        bdkey:question4key
+                                    },
+                                    {
+                                        resp:question5,
+                                        bdkey:question5key
+                                    },
+                                    {
+                                        resp:question6,
+                                        bdkey:question6key
+                                    }
+
+                                    ]
+
+                                } 
+
+                                responsesend(data)
+
+                            }
+
+
                             function calcScore2()
                             {
                                 getAnswer();
-
+                                
                                 calcRawScore();
                                 actualScore = Math.round(rawScore / numQuestions * 100);
                                 var id = "101";
