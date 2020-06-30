@@ -41,7 +41,7 @@ function loginfunc(event) {
 
                     switch (re.tipo) {
                         case 1:
-                            location.href = "estudiante/dashboard.html";
+                            location.href = "ovaresources/gev/index.html";
                             break;
                         case 2:
                             location.href = "docente/dashboard.html";
@@ -82,7 +82,13 @@ function registfunc(event) {
     let verypass = document.getElementById('verifyPass').value;
 
     if(verypass==passw){
-        let data = {nomnbre : nom , apellido : apell , correo : email , contraseña : passw }
+        let data = 
+        {
+            nombre : nom,
+            apellido : apell,
+            correo : email,
+            contraseña : passw
+        }
 
 
         let init = {

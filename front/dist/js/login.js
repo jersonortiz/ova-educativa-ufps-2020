@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
     var login = $('#loginform');
-    var recover = $('#recoverform');
+    var regist = $('#registform');
     var speed = 400;
+    $("#registform").hide();
 
     $('#to-regist').click(function () {
 

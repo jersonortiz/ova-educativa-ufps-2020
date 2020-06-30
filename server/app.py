@@ -68,36 +68,40 @@ def hello_world():
 
 @app.route('/login',methods=['GET', 'POST'])
 def login():
+
     print (request.is_json)
     content = request.get_json()
-    #content = json.loads(request.get_json())
     user= content.get('user')
     passw= content.get('password')
-    #return passw
     u = usuarioDAO()
-    us1= u.find(user)
-    if us1:
-        if us1.correo == user and us1.contraseña == passw:
+    usi= u.find(user)
+    if usi:
+        if usi.correo == user and usi.contraseña == passw:
             token = encode_auth_token(us1)
-            print(token)
-            #return token
             return json.dumps({'token':str(token)})
 
 
 @app.route('/registro',methods=['GET', 'POST'])
 def registro():
     print (request.is_json)
-    content = json.loads(request.get_json())
-    usr=content['name']
-    print(usr)
+    content = request.get_json()
+
+    nombre= content.get('nombre')
+    apellido= content.get('apellido')
+    correo=content.get('correo')
+    contraseña=content.get('contraseña')
+    tipo= content.get('tipo')
+    usr = usuarioDTO('',nombre,apellido,correo,contraseña,tipo)
+
     u = usuarioDAO()
 
-    if u.select(usr):
+    if u.find(correo):
         return json.dumps({'status':'existe'})
     elif u.insert(usr): 
         return json.dumps({'status':'registered'})
     else:
         return json.dumps({'status':'fail'})
+
 
 
 if __name__ == "__main__":

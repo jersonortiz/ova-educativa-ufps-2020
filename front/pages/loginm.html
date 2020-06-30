@@ -5,9 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SCM- Iniciar sesion</title>
+  <title>Generalidades de la educacion virtual</title>
   <meta charset="UTF-8" />
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -20,13 +19,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="../dist/css/login.css">
 
-
 </head>
 
 <body class="hold-transition login-page">
   <div class="login-box">
 
-    <div class="card">
+    <div id="login" class="card">
       <div class="card-body login-card-body">
 
         <div class="login-logo">
@@ -36,7 +34,7 @@
         <form method="" id="loginform">
 
           <div class="input-group mb-3">
-            <input type="text" class="form-control" name="cod" id="cod" placeholder="1150000" required />
+            <input type="email" class="form-control" name="txtUser" id="txtUser" placeholder="Correo"  required />
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -45,7 +43,7 @@
           </div>
 
           <div class="input-group mb-3">
-            <input type="password" class="form-control" name="pass" id="pass" placeholder="******" required="" />
+            <input type="password" class="form-control" name="txtPass" id="txtPass"  placeholder="Contraseña" required/>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -56,7 +54,9 @@
           <div class="row">
             <!-- /.col -->
             <div class="col-4">
-              <button id="login" class="btn btn-primary btn-block btn-flat">Entrar</button>
+              <button id="btnlogin" class="btn btn-primary btn-block btn-flat">
+                Entrar
+              </button>
             </div>
             <!-- /.col -->
           </div>
@@ -64,41 +64,43 @@
           <div id="msjerr">
           </div>
 
-
           <p class="mb-1">
-            <a href="#" id="to-recover">Olvido su contraseña?</a>
-          </p>
-          <p class="mb-1">
-            <a href="registro.html">No tiene cuenta? Registrese aqui</a>
+            <a id="to-regist" href="#">No tiene cuenta? Registrese aqui</a>
           </p>
 
         </form>
 
-        <form id="recoverform" action="#" class="form-vertical">
+        <form id="registform" action="#" class="form-vertical">
 
-          <p class="normal_text">Ingrese su correo electronico para enviarle un correo de recuperacion</p>
-
-          <div id="msj2">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" type="text" name="registnom" id="registnom" placeholder="Nombre" required />
           </div>
 
           <div class="input-group mb-3">
-            <input type="email" class="form-control" name="reccorreo" id="reccorreo" placeholder="algo@dominio.algo"
-              required />
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
+            <input type="text" class="form-control" name="registapell" id="registapell" placeholder="Apellido" required />
           </div>
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" name="registEmail" id="registEmail" placeholder="Correo" required />
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="registPass" id="registPass" placeholder="Contraseña" required />
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="verifyPass" id="verifyPass" placeholder="verificar Contraseña" required/>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" name="tipousr" id="tipousr" placeholder="tipo" required />
+          </div>
+
 
           <div class="row">
 
             <div class="col-8">
-              <button id="recuperar" class="btn btn-primary btn-block btn-flat">Recuperar</button>
-            </div>
-
-            <div class="col-4">
-              <a href="#" id="to-login">Regresar al login</a>
+              <button id="btnregist" class="btn btn-primary btn-block btn-flat">Registrar</button>
             </div>
 
           </div>
@@ -106,6 +108,11 @@
           <div id="msjrecu">
           </div>
 
+          <div class="col-4">
+            <a href="#" id="to-login">
+              Ya tiene una cuenta , regresar al inicio de sesion
+            </a>
+          </div>
 
         </form>
 
