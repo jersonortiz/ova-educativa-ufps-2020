@@ -52,7 +52,7 @@ function loginfunc(event) {
                             location.href = "admin/dashboard.html";
                             break;
                     }
-                    
+
                 } else {
 
                     let msjdiv = document.getElementById("msjerr");
@@ -83,17 +83,17 @@ function registfunc(event) {
     let passw = document.getElementById('registPass').value;
     let verypass = document.getElementById('verifyPass').value;
     let tip = document.getElementById('tipousr').value;
-    
 
-    if(verypass==passw){
-        let data = 
-        {
-            nombre : nom,
-            apellido : apell,
-            correo : email,
-            contraseña : passw,
-            tipo:tip
-        }
+
+    if (verypass == passw) {
+        let data =
+                {
+                    nombre: nom,
+                    apellido: apell,
+                    correo: email,
+                    contraseña: passw,
+                    tipo: tip
+                }
 
 
         let init = {
@@ -107,23 +107,23 @@ function registfunc(event) {
         };
 
         fetch(url, init)
-        .then((resp) => resp.json())
-        .then(function (data) {
-            console.log(data)
-            let msjdiv = document.getElementById("msjrecu");
-            msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-success alert-dismissible">' +
-                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                '<h5><i class="icon fas fa-check"></i> Alert!</h5>' +
-                'se ha registrado correctamente </div>');
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log(data)
+                    let msjdiv = document.getElementById("msjrecu");
+                    msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-success alert-dismissible">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                            '<h5><i class="icon fas fa-check"></i> Alert!</h5>' +
+                            'se ha registrado correctamente </div>');
 
-        })
-        .catch(function (err) {
-            let msjdiv = document.getElementById("msjrecu");
-            msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-warning alert-dismissible">' +
-                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
-                '<h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>' +
-                'error de conexion , no se puede conectar con el servidor</div>');
-        });
-    }      
+                })
+                .catch(function (err) {
+                    let msjdiv = document.getElementById("msjrecu");
+                    msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-warning alert-dismissible">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+                            '<h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>' +
+                            'error de conexion , no se puede conectar con el servidor</div>');
+                });
+    }
 
 }

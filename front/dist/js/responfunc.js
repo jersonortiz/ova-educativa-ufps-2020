@@ -1,7 +1,7 @@
 function responsesend(datares) {
     console.log("enviar")
-    userdat= sessionStorage.getItem("GEV_OVA_USER_DATA");
-    token= sessionStorage.getItem("GEV_OVA_USER_TOKEN");
+    userdat = sessionStorage.getItem("GEV_OVA_USER_DATA");
+    token = sessionStorage.getItem("GEV_OVA_USER_TOKEN");
 
     let url = serverurl + 'responder';
     console.log(url)
@@ -27,16 +27,16 @@ function responsesend(datares) {
             .then((resp) => resp.json())
             .then(function (data) {
                 if (data) {
-                    
+
                     console.log(data);
-    
+
                 } else {
                     console.log(data);
                 }
             })
             .catch(function (err) {
                 console.log(err);
-        
+
             });
 
 }
