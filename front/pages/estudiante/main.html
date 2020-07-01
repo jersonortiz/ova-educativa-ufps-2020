@@ -154,8 +154,8 @@
               <!-- /.grupo list -->
               <div v-show="seldoc===true" >
 
-
-                <table class="table table-hover table-condensed">
+                <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -180,12 +180,14 @@
                   </tbody>
                 </table>
               </div>
+              </div>
               <!-- /.grupo list -->
 
 
               <!-- /.grupo form -->
               <div v-show="selgru===true">
-                <table class="table table-hover table-condensed">
+                <div class="card-body table-responsive p-0">
+                <table class="table table-hover ">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -206,6 +208,7 @@
     
                   </tbody>
                 </table>
+              </div>
 
                 <div class="col-4">
                   <button  class="btn btn-block btn-info" v-on:click="showdocentes">Regresar</button>

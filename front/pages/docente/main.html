@@ -172,8 +172,8 @@
 
               <!-- /.grupo list -->
               <div v-show="list===true" >
-
-                <table class="table table-hover table-condensed">
+                <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>id</th>
@@ -193,6 +193,7 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
 
               </div>
               <!-- /.grupo list -->
@@ -239,6 +240,7 @@
 
               <!-- /.lista estudiantes -->
               <div v-show="estudents===true" >
+                <div class="card-body table-responsive p-0">
 
                 <table class="table table-hover table-condensed">
                   <thead>
@@ -264,6 +266,7 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
 
                 <div class="col-4">
                   <button  class="btn btn-block btn-info" v-on:click="regresalistar">Regresar</button>
