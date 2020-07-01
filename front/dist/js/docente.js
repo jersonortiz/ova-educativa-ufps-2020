@@ -75,7 +75,6 @@ if ((token == null) && (userdat == null)) {
 
     }
 
-
     function preguntasest(event){
         let tema = event.target.value;
         let estid = vm.selectstudent;
@@ -94,8 +93,6 @@ if ((token == null) && (userdat == null)) {
         .catch(function (err) {
             console.log(err);
         });
-
-
     }
 
     function mostrarestudiante(event){
@@ -108,9 +105,7 @@ if ((token == null) && (userdat == null)) {
 
     }
 
-
     function seleccion(event) {
-
         let grupoid=event.target.value;
         let data={idg:grupoid}
         let url = serverurl + 'estudiantesgrupo';

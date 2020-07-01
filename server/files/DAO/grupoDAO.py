@@ -63,3 +63,9 @@ class grupoDAO(object):
 		for x in val:
 			resul.append(grupoDTO(x[0],x[1],x[2]))
 		return resul
+
+	def asignarestudaintegrupo(self , idest,idg):
+		con = Conexion()
+		sql = "INSERT INTO `grupoestudiante` (`id`, `id_grupo`, `id_estudiante`) VALUES (NULL, %s, %s)"
+		data=(idg,idest)
+		return con.modify(sql,data)

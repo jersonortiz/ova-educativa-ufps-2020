@@ -187,8 +187,8 @@ def prmsj():
 
 @app.route('/respuestasestudiante',methods=['GET', 'POST'])
 def respuestas_estudiante():
-    #token = request.headers['Authorization']
-    #user = decode_auth_token(token)
+    token = request.headers['Authorization']
+    user = decode_auth_token(token)
     content = request.get_json()
     nom=content.get('idest')
     tem=content.get('tema')
@@ -207,5 +207,50 @@ def respuestas_estudiante():
     ret ={'preguntas':retorno}
     return json.dumps(ret)
          
+
+@app.route('/cargardocentes',methods=['GET', 'POST'])
+def cargar_docentes():
+    token = request.headers['Authorization']
+    user = decode_auth_token(token)
+    content = request.get_json()
+    u = usuarioDAO()
+    docs= u.listDocentes()
+    arreglo = []
+    for x in docs:
+        arreglo.append({'id':x.idu,'nombre':x.nombre,'apellido':x.apellido,'correo':x.correo})
+    ret ={'docs':arreglo}
+    return json.dumps(ret)
+
+@app.route('/gruposdocente',methods=['GET', 'POST'])
+def cargar_grupos():
+    token = request.headers['Authorization']
+    user = decode_auth_token(token)
+    content = request.get_json()
+    iddoc=content.get('docente')
+    gd= grupoDAO()
+    grupos=gd.selectBydocente(iddoc)
+    arreglo = []
+    for x in grupos:
+        arreglo.append({'id':x.idg,'nombre':x.nombre,'id_docente':x.id_docente})
+    ret ={'grup':arreglo}
+    return json.dumps(ret)
+
+
+@app.route('/asignargrupo',methods=['GET', 'POST'])
+def asignar_estudiante_grupo():
+    token = request.headers['Authorization']
+    user = decode_auth_token(token)
+    content = request.get_json()
+    grup=content.get('grupo')
+    iddoc=content.get('docente')
+    userdat=content.get('user')
+    print('user')
+    print(userdat)
+    gd= grupoDAO()
+    if gd.asignarestudaintegrupo(userdat,grup): 
+        return json.dumps({'status':'registered'})
+    else:
+        return json.dumps({'status':'fail'})
+
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)

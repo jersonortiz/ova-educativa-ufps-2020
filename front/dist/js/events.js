@@ -43,7 +43,7 @@ function loginfunc(event) {
 
                     switch (re.tipo) {
                         case '1':
-                            location.href = "ovaresources/gev/index.html";
+                            location.href = "estudiante/main.html";
                             break;
                         case '2':
                             location.href = "docente/main.html";
