@@ -37,8 +37,6 @@ function responsesend(datares) {
     
                 } else {
                     console.log(data);
-
-            
                 }
             })
             .catch(function (err) {

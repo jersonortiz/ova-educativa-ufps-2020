@@ -2,7 +2,6 @@
 <html lang="es">
     <head>
         <script src="../../../dist/js/config.js"></script>
-        <script src="../../../dist/js/responfunc.js"></script>
         <link rel="stylesheet" type="text/css" href="base.css" />
         <link rel="stylesheet" type="text/css" href="content.css" />
         <link rel="stylesheet" type="text/css" href="nav.css" />
@@ -13,6 +12,7 @@
         <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
         <meta name="generator" content="eXeLearning  - exelearning.net" />
         <!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+        <script src="../../../dist/js/responfunc.js"></script>
         <script type="text/javascript" src="exe_jquery.js"></script>
         <script type="text/javascript" src="common_i18n.js"></script>
         <script type="text/javascript" src="common.js"></script>
@@ -156,6 +156,7 @@
                             var key4 = 0;
                             var key5 = 3;
                             var key6 = 2;
+
                             function getAnswer()
                             {
                                 for (var i = 0; i < 4; i++)
@@ -221,6 +222,7 @@
                                     }
                                 }
                             }
+
                             function calcRawScore() {
 
                                 if (question0 == key0)
@@ -293,18 +295,12 @@
                                         resp:question6,
                                         bdkey:question6key,
                                         key:key6
-                                    },
-                                    {
-                                        resp:question7,
-                                        bdkey:question7key,
-                                        key:key7
                                     }
 
                                     ]
 
                                 } 
-
-                                responsesend(data)
+                                responsesend(data);
 
                             }
 
@@ -321,7 +317,7 @@
                                 msg_str = msg_str.replace("%d", actualScore).replace("%%", "%");            if (s) {
                                     s.innerHTML = "<div class='feedback'><p>" + msg_str + "</p></div>"; } else {
                                     alert(msg_str); }
-                                sendbd(actualScore)
+                                sendbd(actualScore);
 
                             }
                             /*]]>*/</script>
