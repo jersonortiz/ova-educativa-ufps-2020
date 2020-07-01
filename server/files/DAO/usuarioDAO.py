@@ -84,3 +84,13 @@ class usuarioDAO(object):
 		for x in val:
 			resul.append(usuarioDTO(x[0],x[1],x[2],x[3],x[4],x[5]))
 		return resul
+
+	def listDocentes(self):
+		con = Conexion()
+		sql = "select * from usuario where tipo=2"
+		data = None
+		val= con.find(sql,data)
+		resul=[]
+		for x in val:
+			resul.append(usuarioDTO(x[0],x[1],x[2],x[3],x[4],x[5]))
+		return resul

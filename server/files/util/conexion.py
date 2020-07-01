@@ -53,4 +53,3 @@ class Conexion:
             if (self.mydb.is_connected()):
                 ins.close()
                 self.mydb.close()
-                print("MySQL connection is closed")

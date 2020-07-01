@@ -26,9 +26,11 @@ class respuestaDTO:
 
 class preguntaDTO:
 
-	def __init__(sef,idpre,idtem):
+	def __init__(sef,idpre,idtem,conten,resp):
 		self.idp=str(idpre)
 		self.id_tema=str(idtem)
+		self.contenido=str(conten)
+		self.respuesta=str(resp)
 
 
 class pendienteDTO:

@@ -1,12 +1,7 @@
 function responsesend(datares) {
     console.log("enviar")
-    event.preventDefault();
-
     userdat= sessionStorage.getItem("GEV_OVA_USER_DATA");
     token= sessionStorage.getItem("GEV_OVA_USER_TOKEN");
-
-    let re = JSON.parse(atob(token.split('.')[1]));
-    console.log(re)
 
     let url = serverurl + 'responder';
     console.log(url)

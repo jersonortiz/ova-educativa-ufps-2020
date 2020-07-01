@@ -3,13 +3,13 @@ from files.util.conexion import Conexion
 
 class preguntaDAO(object):
 	"""docstring for preguntaDAO"""
-	def __init__(self, arg):
+	def __init__(self):
 		super(preguntaDAO, self).__init__()
 
 	def insert(self ,pregunta):
 		con = Conexion()
-		sql = "INSERT INTO pregunta (id, id_tema) VALUES (null,%s)"
-		data=(pregunta.id_tema, )
+		sql = "INSERT INTO pregunta (id, id_tema, contenido ,respuesta) VALUES (null,%s,%s,%s)"
+		data=(pregunta.id_tema,pregunta.contenido,pregunta.respuesta )
 		return con.modify(sql,data)
 
 	def select(self,idu ):
@@ -18,7 +18,7 @@ class preguntaDAO(object):
 		data=(idu,)
 		val= con.find(sql,data)
 		if val:
-			return preguntaDTO(val[0][0],val[0][1])
+			return preguntaDTO(val[0][0],val[0][1],val[0][2],val[0][3])
 		else:
 			return False
 		
@@ -41,7 +41,7 @@ class preguntaDAO(object):
 		val= con.find(sql,data)
 		resul=[]
 		for x in val:
-			resul.append(usuarioDTO(x[0],x[1]))
+			resul.append(preguntaDTO(x[0],x[1],x[2],x[3]))
 		return resul
 
 	def listByTema(self, numtema):
@@ -51,5 +51,15 @@ class preguntaDAO(object):
 		val= con.find(sql,data)
 		resul=[]
 		for x in val:
-			resul.append(usuarioDTO(x[0],x[1]))
+			resul.append(preguntaDTO(x[0],x[1],x[2],x[3]))
+		return resul
+
+	def listTodoEstudiante(self , ide , idt ): 
+		con = Conexion()
+		sql = "SELECT p.id, p.contenido , p.respuesta , r.opcion_escogida, r.correcta FROM pregunta p , respuesta r, tema t WHERE r.id_pregunta = p.id and p.id_tema = t.id and r.id_estudiante = %s AND t.id = %s ORDER BY p.id"
+		data = (ide,idt)
+		val= con.find(sql,data)
+		resul=[]
+		for x in val:
+			resul.append([x[0] ,x[1], x[2],x[3],x[4]])	
 		return resul

@@ -8,7 +8,7 @@ class grupoDAO(object):
 		
 	def insert(self ,grupo):
 		con = Conexion()
-		sql = "INSERT INTO `grupo` (`id`, `nombre`, `id_docente`) VALUES (NULL, '%s', '%s')"
+		sql = "INSERT INTO `grupo` (`id`, `nombre`, `id_docente`) VALUES (NULL, %s, %s)"
 		data=(grupo.nombre,grupo.id_docente)
 		return con.modify(sql,data)
 
@@ -21,6 +21,26 @@ class grupoDAO(object):
 			return grupoDTO(val[0][0],val[0][1],val[0][2])
 		else:
 			return False
+			
+	def findByNombreAndDocente(self,grupo):
+		con = Conexion()
+		sql = "SELECT * FROM `grupo` WHERE nombre = %s and id_docente = %s"
+		data=(grupo.nombre,grupo.id_docente)
+		val= con.find(sql,data)
+		if val:
+			return grupoDTO(val[0][0],val[0][1],val[0][2])
+		else:
+			return False
+
+	def selectBydocente(self,idd):
+		con = Conexion()
+		sql = "SELECT * FROM `grupo` WHERE id_docente = %s"
+		data=(idd,)
+		val= con.find(sql,data)
+		resul=[]
+		for x in val:
+			resul.append(grupoDTO(x[0],x[1],x[2]))
+		return resul
 		
 	def delete(self ,idu):
 		con = Conexion()

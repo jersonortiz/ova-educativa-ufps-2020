@@ -3,7 +3,6 @@ $(document).ready(function () {
     var login = $('#loginform');
     var regist = $('#registform');
     var speed = 400;
-    $("#registform").hide();
 
     $('#to-regist').click(function () {
 

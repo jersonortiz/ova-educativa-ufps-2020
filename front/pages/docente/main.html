@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="../../dist/js/config.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>GEV- generalidades de la educacion virtual</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<main>
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          {{user.nombre}}
+          <i class="icon ion-md-contact"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+  
+          <a href="./perfil.html" class="dropdown-item">
+            <i class="icon ion-md-build"></i>Perfil
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" id="cerrars" class="dropdown-item">
+            <i class="icon ion-md-power"></i>Salir
+          </a>
+          <div class="dropdown-divider"></div>
+
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="../../dist/img/logo2.png"
+          
+           class="brand-image img-rectangle elevation-0"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">UFPS</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/logo22.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{user.nombre}}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+          <li class="nav-header">Acciones</li>
+          <li class="nav-item">
+            <a href="#" v-on:click="regresalistar" class="nav-link">
+              <i class="icon ion-md-create"></i>
+              <p>
+                Listar grupos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" v-on:click="showregistro" class="nav-link">
+              <i class="icon ion-md-create"></i>
+              <p>
+                Registrar grupo
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1> </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li v-if="list===true" v-on:click="regresalistar" class="breadcrumb-item">
+                <a href="#">Listado de grupos</a>
+              </li>
+              <li v-if="regist===true" class="breadcrumb-item">
+                <a href="#">Registro de grupos</a>
+              </li>
+
+              <li v-if="estudents===true" v-on:click="regresalistar" class="breadcrumb-item">
+                <a href="#">Listado de grupos</a>
+              </li>
+              <li v-if="estudents===true" class="breadcrumb-item">
+                <a href="#">Estudiantes del grupo</a>
+              </li>
+      
+              <li v-if="muestrapregestud===true" v-on:click="regresalistar" class="breadcrumb-item">
+                <a href="#">Listado de grupos</a>
+              </li>
+              <li v-if="muestrapregestud===true" v-on:click="shostudents" class="breadcrumb-item">
+                <a href="#">Estudiantes del grupo</a>
+              </li>
+              <li v-if="muestrapregestud===true" class="breadcrumb-item">
+                <a href="#">Respuestas de estudiante</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+
+
+       
+
+          <div class="card">
+            <div class="card-header">
+              <h3 v-if="list===true" class="card-title">Lista de grupos</h3>
+              <h3 v-if="regist===true" class="card-title">Registro de grupo</h3>
+              <h3 v-if="estudents===true" class="card-title">Listado estudiantes</h3>
+            </div>
+            <div class="card-body ">
+
+
+              <!-- /.grupo list -->
+              <div v-show="list===true" >
+
+                <table class="table table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th>id</th>
+                      <th>Grupo</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd gradeX" v-for="(grupo , index) in grupos.grups">
+                      <td>{{grupo.id}}</td>
+                      <td>{{grupo.nombre}} </td>
+                      <td>
+                        <button class="btn btn-block btn-info" v-on:click="seleccionar" :value="grupo.id">
+                          <i class="icon-pencil"></i>Ver estudiantes
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+              <!-- /.grupo list -->
+
+
+              <!-- /.grupo form -->
+              <div v-show="regist===true">
+                
+
+                <form method="" id="grupoform">
+
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="txtgrupo" id="txtgrupo" placeholder="Nombre del grupo"  required/>
+                        
+                  </div>
+
+
+                  <div class="row">
+                    <!-- /.col -->
+                    <div class="col-4">
+                      <button id="btnregistro" v-on:click="creargrupo" class="btn btn-primary btn-block btn-flat">
+                        Registrar
+                      </button>
+                    </div>
+
+                    <div class="col-4">
+                      <button id="btnregreso" v-on:click="regresalistar" class="btn btn-block btn-info">
+                        Regresar
+                      </button>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+
+                  <div id="msjregistro">
+                    {{msjregistro}}
+                  </div>
+
+                
+                </form>
+
+
+              </div>
+              <!-- /.grupo form -->
+
+              <!-- /.lista estudiantes -->
+              <div v-show="estudents===true" >
+
+                <table class="table table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nombres</th>
+                      <th>Apellidos</th>
+                      <th>Correos</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd gradeX" v-for="(estudiante , index) in estudiantes.estudents">
+                      <td>{{index}}</td>
+                      <td>{{estudiante.nombre}}</td>
+                      <td>{{estudiante.apellido}}</td>
+                      <td>{{estudiante.correo}}</td>
+                      <td>
+                        <button class="btn btn-block btn-info" v-on:click="mostrarestudiante" :value="estudiante.id">
+                          <i class="icon-pencil"></i>Ver estudiante
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="col-4">
+                  <button  class="btn btn-block btn-info" v-on:click="regresalistar">Regresar</button>
+                </div>
+
+              </div>
+              <!-- /.lista estudiantes -->
+            
+            </div>
+
+           </div>
+          
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+        <div  v-show="muestrapregestud===true"  class="row">
+          <div class="col-12">
+            <!-- Custom Tabs -->
+            <div class="card">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3">Tabs</h3>
+                <ul class="nav nav-pills ml-auto p-2">
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="1" v-on:click="preguntasest">Concepto OVA</button>
+                  </li>
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="2" v-on:click="preguntasest">LMS</button>
+                  </li>
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="3" v-on:click="preguntasest">Exe </button>
+                  </li>
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="4" v-on:click="preguntasest">Reload</button>
+                  </li>
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="5" v-on:click="preguntasest">SCORM</button>
+                  </li>
+                  <li class="nav-item">
+                    <button  class="btn btn-block btn-info" value="6" v-on:click="preguntasest">LOM</button>
+                  </li>
+
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+
+                <p class="text-primary">Opcion correcta</p>
+                <p class="text-success">Respuesta correcta seleccionada</p>
+                <p class="text-danger">Respuesta erronea seleccionada</p>
+                <p class="text-muted">opcion no seleccionada</p>
+
+                  <ol>
+
+                  <li v-for="(pregunta , index) in respuestasestudiante.preguntas">
+                    <p class="lead"> {{pregunta.pregunta.enunciado}} </p>
+                    <ul>
+                    <li v-for="(opcion , index) in pregunta.pregunta.opciones">
+                      <p v-if="pregunta.escogido==pregunta.respuesta && index==pregunta.escogido" class="text-success" >  {{opcion}}</p>
+                      <p v-else-if="pregunta.escogido!=pregunta.respuesta && index==pregunta.escogido" class="text-danger" >  {{opcion}}</p>
+                      <p v-else-if="pregunta.escogido!=pregunta.respuesta && index==pregunta.respuesta" class="text-primary">{{opcion}}</p>
+                      <p v-else class="text-muted">{{opcion}}</p>
+                    </li>
+                  </ul>
+                  </li>
+                </ol>
+                <div class="col-4">
+                  <button  class="btn btn-block btn-info" v-on:click="shostudents">Regresar</button>
+                </div>
+
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- ./card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0.0-rc.3
+    </div>
+    <strong>Copyright &copy; 2019-2025 Control de microcurriculos ufps.</strong> 
+    All rights
+    reserved.
+  </footer>
+
+
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/vue.min.js"></script>
+<script src="../../dist/js/docente.js"></script>
+</main>
+</body>
+</html>

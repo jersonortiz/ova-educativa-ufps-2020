@@ -34,10 +34,11 @@ function loginfunc(event) {
                     let token = data.token;
                     sessionStorage.setItem("GEV_OVA_USER_TOKEN", token);
                     console.log(token);
+                    let aser = atob(token.split('.')[1])
+                    console.log(aser)
 
-                    let re = JSON.parse(atob(token.split('.')[1]));
-                    sessionStorage.setItem("GEV_OVA_USER_DATA", re);
-                    console.log(re)
+                    let re = JSON.parse(aser);
+                    sessionStorage.setItem("GEV_OVA_USER_DATA", aser);
                     console.log(re.tipo)
 
                     switch (re.tipo) {
@@ -45,7 +46,7 @@ function loginfunc(event) {
                             location.href = "ovaresources/gev/index.html";
                             break;
                         case '2':
-                            location.href = "docente/dashboard.html";
+                            location.href = "docente/main.html";
                             break;
                         case '3':
                             location.href = "admin/dashboard.html";
@@ -81,6 +82,8 @@ function registfunc(event) {
     let email = document.getElementById('registEmail').value;
     let passw = document.getElementById('registPass').value;
     let verypass = document.getElementById('verifyPass').value;
+    let tip = document.getElementById('tipousr').value;
+    
 
     if(verypass==passw){
         let data = 
@@ -88,7 +91,8 @@ function registfunc(event) {
             nombre : nom,
             apellido : apell,
             correo : email,
-            contraseña : passw
+            contraseña : passw,
+            tipo:tip
         }
 
 
@@ -105,6 +109,7 @@ function registfunc(event) {
         fetch(url, init)
         .then((resp) => resp.json())
         .then(function (data) {
+            console.log(data)
             let msjdiv = document.getElementById("msjrecu");
             msjdiv.insertAdjacentHTML('afterbegin', '<div class="alert alert-success alert-dismissible">' +
                 '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
