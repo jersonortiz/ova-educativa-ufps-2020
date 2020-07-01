@@ -4,7 +4,8 @@ class Conexion:
     
     user="pmauser"
     passw="ortizcalderon"
-    hos="localhost"
+    #hos="localhost"
+    hos="18.222.117.126"
     db="ovaeducativa"
     mydb=None
     
@@ -37,3 +38,19 @@ class Conexion:
             self.mydb.rollback()
         if self.mydb:
             self.mydb.close()
+
+    def many(self,sql,data):
+        try:
+            self.connect()
+            ins=self.mydb.cursor()
+            ins.executemany(sql,data)
+            self.mydb.commit()
+            return True
+        except:
+            self.mydb.rollback()
+            return False
+        finally:
+            if (self.mydb.is_connected()):
+                ins.close()
+                self.mydb.close()
+                print("MySQL connection is closed")

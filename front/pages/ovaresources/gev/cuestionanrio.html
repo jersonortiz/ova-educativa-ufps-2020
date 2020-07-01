@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <script src="../../../dist/js/config.js"></script>
         <link rel="stylesheet" type="text/css" href="base.css" />
         <link rel="stylesheet" type="text/css" href="content.css" />
         <link rel="stylesheet" type="text/css" href="nav.css" />
@@ -11,9 +12,11 @@
         <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
         <meta name="generator" content="eXeLearning  - exelearning.net" />
         <!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+        <script src="../../../dist/js/responfunc.js"></script>
         <script type="text/javascript" src="exe_jquery.js"></script>
         <script type="text/javascript" src="common_i18n.js"></script>
         <script type="text/javascript" src="common.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body class="exe-web-site" id="exe-node-74"><script type="text/javascript">document.body.className += " js"</script>
@@ -140,13 +143,13 @@
                             var question4;
                             var question5;
                             var question6;
-                            var question0key=1;
-                            var question1key=2;
-                            var question2key=3;
-                            var question3key=4;
-                            var question4key=5;
-                            var question5key=6;
-                            var question6key=7;
+                            var question0key=25;
+                            var question1key=26;
+                            var question2key=27;
+                            var question3key=28;
+                            var question4key=29;
+                            var question5key=30;
+                            var question6key=31;
                             var key0 = 0;
                             var key1 = 2;
                             var key2 = 0;
@@ -154,6 +157,7 @@
                             var key4 = 3;
                             var key5 = 1;
                             var key6 = 3;
+
                             function getAnswer()
                             {
                                 for (var i = 0; i < 4; i++)
@@ -253,37 +257,45 @@
 
                             }
 
-                            function sendbd(){
+                            function sendbd(actualScore){
                                 console.log('hola')
                                 data={
+                                    puntaje: actualScore,
                                     respuestas : [
                                     {
                                         resp:question0,
-                                        bdkey:question0key
+                                        bdkey:question0key,
+                                        key:key0
                                     },
                                     {
                                         resp:question1,
-                                        bdkey:question1key
+                                        bdkey:question1key,
+                                        key:key1
                                     },
                                     {
                                         resp:question2,
-                                        bdkey:question2key
+                                        bdkey:question2key,
+                                        key:key2
                                     },
                                     {
                                         resp:question3,
-                                        bdkey:question3key
+                                        bdkey:question3key,
+                                        key:key3
                                     },
                                     {
                                         resp:question4,
-                                        bdkey:question4key
+                                        bdkey:question4key,
+                                        key:key4
                                     },
                                     {
                                         resp:question5,
-                                        bdkey:question5key
+                                        bdkey:question5key,
+                                        key:key5
                                     },
                                     {
                                         resp:question6,
-                                        bdkey:question6key
+                                        bdkey:question6key,
+                                        key:key6
                                     }
 
                                     ]
@@ -308,6 +320,7 @@
                                 msg_str = msg_str.replace("%d", actualScore).replace("%%", "%");            if (s) {
                                     s.innerHTML = "<div class='feedback'><p>" + msg_str + "</p></div>"; } else {
                                     alert(msg_str); }
+                                sendbd(actualScore)
 
                             }
                             /*]]>*/</script>

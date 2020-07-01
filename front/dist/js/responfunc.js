@@ -1,13 +1,19 @@
-
 function responsesend(datares) {
+    console.log("enviar")
     event.preventDefault();
+
     userdat= sessionStorage.getItem("GEV_OVA_USER_DATA");
     token= sessionStorage.getItem("GEV_OVA_USER_TOKEN");
 
+    let re = JSON.parse(atob(token.split('.')[1]));
+    console.log(re)
+
     let url = serverurl + 'responder';
+    console.log(url)
 
     let data = datares;
-    console.log(data);
+    console.log(JSON.stringify(data));
+    console.log(token);
 
     let init = {
         method: 'POST',
@@ -15,7 +21,8 @@ function responsesend(datares) {
             mode: 'cors',
             'Accept': 'application/json',
             'Content-type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': token
         },
         body: JSON.stringify(data),
         cache: 'default'
@@ -25,19 +32,13 @@ function responsesend(datares) {
             .then((resp) => resp.json())
             .then(function (data) {
                 if (data) {
-                    let token = data.token;
-                    sessionStorage.setItem("USER_TOKEN", token);
-                    console.log(token);
-
-                    let re = JSON.parse(atob(token.split('.')[1]));
-                    console.log(re)
-                    console.log(re.correo)
-
-               
                     
+                    console.log(data);
+    
                 } else {
+                    console.log(data);
 
-                 
+            
                 }
             })
             .catch(function (err) {

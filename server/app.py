@@ -43,11 +43,15 @@ def decode_auth_token(auth_token):
     :return: integer|string
     """
     try:
-        payload = jwt.decode(auth_token, 'secret')
+        asr=auth_token.split("'")[1]
+        payload = jwt.decode(asr, 'secret')
         return usuarioDTO(payload['id'],payload['nombre'],payload['apellido'],payload['correo'],'',payload['tipo'])
-    except jwt.ExpiredSignatureError:
+    except jwt.ExpiredSignatureError as e:
+        print(str(e))
+
         return 'Signature expired. Please log in again.'
-    except jwt.InvalidTokenError:
+    except jwt.InvalidTokenError as te:
+        print(str(te))
         return 'Invalid token. Please log in again.'
 
 def validate_auth_token(auth_token):
@@ -78,6 +82,7 @@ def login():
     if usi:
         if usi.correo == user and usi.contraseña == passw:
             token = encode_auth_token(usi)
+            print(token)
             return json.dumps({'token':str(token)})
 
 
@@ -102,6 +107,37 @@ def registro():
     else:
         return json.dumps({'status':'fail'})
 
+@app.route('/responder',methods=['GET', 'POST'])
+def responder():
+    print (request.is_json)
+    content = request.get_json()
+    token = request.headers['Authorization']
+    user = decode_auth_token(token)
+
+    respuestas=content.get('respuestas')
+    puntaje= content.get('puntaje')
+
+    print(str(content))
+    val=[]
+    for x in respuestas:
+
+        bdid=x['bdkey']
+        key=x['key']
+        resp=-1
+        correcta=0
+        if 'resp' in x:
+            resp= x['resp']
+            if str(resp)==str(key) :
+                correcta = 1
+
+        val.append((int(puntaje),int(correcta),resp,int(bdid),int(user.idu)))
+
+    p= respuestaDAO()
+
+    if p.multyinsert(val):
+        return json.dumps({'status':'guardado'})
+    else:
+        return json.dumps({'status':'fail'})
 
 
 if __name__ == "__main__":

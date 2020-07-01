@@ -12,6 +12,11 @@ class  respuestaDAO(object):
 		val=(respuesta.puntaje,respuesta.correcta,respuesta.opcion_escogida,respuesta.id_pregunta,respuesta.id_estudiante)
 		return con.modify(sql,val)
 	
+	def multyinsert(self,resp):
+		con = Conexion()
+		sql = "INSERT INTO `respuesta` (`id`, `puntaje`, `correcta`, `opcion_escogida`, `id_pregunta`, `id_estudiante`) VALUES (NULL, %s, %s,%s, %s, %s)"
+		print(str(resp))
+		return con.many(sql,resp)
 
 	def select(self,idu ):
 		con = Conexion()
