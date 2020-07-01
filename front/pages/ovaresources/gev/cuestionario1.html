@@ -16,7 +16,7 @@
         <script type="text/javascript" src="common.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
-    <body class="exe-web-site" id="exe-node-73"><script type="text/javascript">document.body.className += " js"</script>
+    <body class="exe-web-site" id="exe-node-72"><script type="text/javascript">document.body.className += " js"</script>
         <div id="content">
             <p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
             <header id="header" ><div id="headerContent">Generalidades objetos virtuales de aprendizaje</div></header>
@@ -60,8 +60,8 @@
                             <li><a href="cuestionario0.html" class="no-ch">Cuestionario</a></li>
                         </ul>
                     </li>
-                    <li><a href="exelearning.html" class="daddy">Exe-learning</a>
-                        <ul class="other-section">
+                    <li class="current-page-parent"><a href="exelearning.html" class="current-page-parent daddy">Exe-learning</a>
+                        <ul>
                             <li><a href="resea_historica.html" class="no-ch">Reseña historica</a></li>
                             <li><a href="ventajas_y_desventajas1.html" class="no-ch">Ventajas y desventajas</a></li>
                             <li><a href="caracteristicas0.html" class="no-ch">Caracteristicas</a></li>
@@ -74,14 +74,14 @@
                                     <li><a href="idevices.html" class="no-ch">IDevices</a></li>
                                 </ul>
                             </li>
-                            <li><a href="seccin.html" class="no-ch">Sección</a></li>
+                            <li id="active"><a href="cuestionario1.html" class="active no-ch">Cuestionario</a></li>
                         </ul>
                     </li>
-                    <li class="current-page-parent"><a href="reload.html" class="current-page-parent daddy">Reload</a>
-                        <ul>
+                    <li><a href="reload.html" class="daddy">Reload</a>
+                        <ul class="other-section">
                             <li><a href="cmo_se_estructura_un_paquete_scorm_y_qu_funcin_tiene_reload_editor.html" class="no-ch">Cómo se estructura un paquete SCORM y qué función tiene Reload Editor?</a></li>
                             <li><a href="conociendo_reload_editor.html" class="no-ch">Conociendo Reload Editor</a></li>
-                            <li id="active"><a href="cuestionario1.html" class="active no-ch">Cuestionario</a></li>
+                            <li><a href="cuestionario2.html" class="no-ch">Cuestionario</a></li>
                         </ul>
                     </li>
                     <li><a href="scorm.html" class="daddy">SCORM</a>
@@ -105,7 +105,7 @@
                                 </ul>
                             </li>
                             <li><a href="herramientas_para_la_creacin_de_scorm.html" class="no-ch">Herramientas para la creación de SCORM</a></li>
-                            <li><a href="cuestionanrio.html" class="no-ch">Cuestionanrio</a></li>
+                            <li><a href="cuestionario3.html" class="no-ch">Cuestionario</a></li>
                         </ul>
                     </li>
                     <li><a href="lom.html" class="daddy">LOM</a>
@@ -115,66 +115,77 @@
                             <li><a href="para_que_sirven_los_metadatos.html" class="no-ch">Para que sirven los metadatos?</a></li>
                             <li><a href="editores_de_metadatos.html" class="no-ch">Editores de metadatos</a></li>
                             <li><a href="categorias_lom.html" class="no-ch">Categorias LOM</a></li>
-                            <li><a href="cuestionario2.html" class="no-ch">Cuestionario</a></li>
+                            <li><a href="cuestionario4.html" class="no-ch">Cuestionario</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
             <div id='topPagination'>
                 <nav class="pagination noprt">
-                    <a href="conociendo_reload_editor.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="scorm.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+                    <a href="idevices.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="reload.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
                 </nav>
             </div>
             <div id="main-wrapper">
                 <section id="main">
                     <header id="nodeDecoration"><h1 id="nodeTitle">Cuestionario</h1></header>
-                    <article class="iDevice_wrapper QuizTestIdevice em_iDevice" id="id100">
+                    <article class="iDevice_wrapper QuizTestIdevice em_iDevice" id="id99">
                         <script type="text/javascript">/*<![CDATA[*/
-                            var numQuestions = 4;
+                            var numQuestions = 5;
                             var rawScore = 0;
                             var actualScore = 0;
                             var question0;
                             var question1;
                             var question2;
                             var question3;
+                            var question4;
                             var key0 = 1;
-                            var key1 = 1;
-                            var key2 = 1;
-                            var key3 = 1;
+                            var key1 = 0;
+                            var key2 = 0;
+                            var key3 = 2;
+                            var key4 = 1;
                             function getAnswer()
                             {
                                 for (var i = 0; i < 2; i++)
                                 {
-                                    if (document.getElementById("quizForm100").key0b100[i].checked)
+                                    if (document.getElementById("quizForm99").key0b99[i].checked)
                                     {
-                                        question0 = document.getElementById("quizForm100").key0b100[i].value;
+                                        question0 = document.getElementById("quizForm99").key0b99[i].value;
+                                        break;
+                                    }
+                                }
+
+                                for (var i = 0; i < 4; i++)
+                                {
+                                    if (document.getElementById("quizForm99").key1b99[i].checked)
+                                    {
+                                        question1 = document.getElementById("quizForm99").key1b99[i].value;
                                         break;
                                     }
                                 }
 
                                 for (var i = 0; i < 2; i++)
                                 {
-                                    if (document.getElementById("quizForm100").key1b100[i].checked)
+                                    if (document.getElementById("quizForm99").key2b99[i].checked)
                                     {
-                                        question1 = document.getElementById("quizForm100").key1b100[i].value;
+                                        question2 = document.getElementById("quizForm99").key2b99[i].value;
+                                        break;
+                                    }
+                                }
+
+                                for (var i = 0; i < 4; i++)
+                                {
+                                    if (document.getElementById("quizForm99").key3b99[i].checked)
+                                    {
+                                        question3 = document.getElementById("quizForm99").key3b99[i].value;
                                         break;
                                     }
                                 }
 
                                 for (var i = 0; i < 2; i++)
                                 {
-                                    if (document.getElementById("quizForm100").key2b100[i].checked)
+                                    if (document.getElementById("quizForm99").key4b99[i].checked)
                                     {
-                                        question2 = document.getElementById("quizForm100").key2b100[i].value;
-                                        break;
-                                    }
-                                }
-
-                                for (var i = 0; i < 2; i++)
-                                {
-                                    if (document.getElementById("quizForm100").key3b100[i].checked)
-                                    {
-                                        question3 = document.getElementById("quizForm100").key3b100[i].value;
+                                        question4 = document.getElementById("quizForm99").key4b99[i].value;
                                         break;
                                     }
                                 }
@@ -197,6 +208,10 @@
                                 {
                                     rawScore++;
                                 }
+                                if (question4 == key4)
+                                {
+                                    rawScore++;
+                                }
 
                             }
 
@@ -206,45 +221,124 @@
 
                                 calcRawScore();
                                 actualScore = Math.round(rawScore / numQuestions * 100);
-                                var id = "100";
+                                var id = "99";
                                 document.getElementById("quizForm" + id).submitB.disabled = true;
                                 var s = document.getElementById("quizFormScore" + id);
                                 var msg_str = "Su puntuación es %d%%";
                                 msg_str = msg_str.replace("%d", actualScore).replace("%%", "%");            if (s) {
-                                    s.innerHTML = "<div class='feedback'><p>" + msg_str + "</p></div>"; } else {
+                                    s.innerHTML = "<div class='feedback'><p>" + msg_str + "</p></div>";
+                                } else {
                                     alert(msg_str); }
 
                             }
                             /*]]>*/</script>
                         <div class="iDevice emphasis1" >
-                            <header class="iDevice_header"><h1 class="iDeviceTitle">Cuestionario SCORM</h1></header>
+                            <header class="iDevice_header"><h1 class="iDeviceTitle">Cuestionario</h1></header>
                             <div class="iDevice_inner">
                                 <div class="iDevice_content_wrapper">
-                                    <form name="quizForm100" id="quizForm100" action="#" class="quiz-test-form">
-                                        <input type="hidden" name="passrate" id="passrate-100" value="10" />
+                                    <form name="quizForm99" id="quizForm99" action="#" class="quiz-test-form">
+                                        <input type="hidden" name="passrate" id="passrate-99" value="10" />
                                         <section class="question">
                                             <h1 class="js-sr-av">Pregunta</h1>
-                                            <div id="taquestion0b100" class="block iDevice_content">
-                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>Reload cuenta con 4 pasos básicos para su utilización?</b></span></span></span></span></p>
+                                            <div id="taquestion0b99" class="block iDevice_content">
+                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿ExeLearning es una herramienta de código abierto (open source) que facilita la creación de contenidos educativos sin necesidad de ser experto en HTML o XML. Se trata de una aplicación multiplataforma que nos permite la utilización de árboles de contenido, elementos multimedia, actividades interactivas de autoevaluación… facilitando la exportación del contenido generado a múltiples formatos: HTML, SCORM, IMS, etc.?</b></span></span></span></span></p>
                                             </div>
                                             <section class="iDevice_answers">
                                                 <h1 class="js-sr-av">Respuestas</h1>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key0b1001" class="sr-av"><a href="#answer-key0b1001">Opción 1</a></label><input type="radio" name="key0b100" id="key0b1001" value="0" />
+                                                        <label for="key0b991" class="sr-av"><a href="#answer-key0b991">Opción 1</a></label><input type="radio" name="key0b99" id="key0b991" value="0" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key0b1001">
-                                                        <div id="taoptionAnswer0q0b100" class="block iDevice_content">
+                                                    <div class="iDevice_answer-content" id="answer-key0b991">
+                                                        <div id="taoptionAnswer0q0b99" class="block iDevice_content">
+                                                            <p><strong>F</strong></p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key0b992" class="sr-av"><a href="#answer-key0b992">Opción 2</a></label><input type="radio" name="key0b99" id="key0b992" value="1" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key0b992">
+                                                        <div id="taoptionAnswer1q0b99" class="block iDevice_content">
+                                                            <p><strong>V</strong></p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </section>
+                                        </section>
+                                        <section class="question">
+                                            <h1 class="js-sr-av">Pregunta</h1>
+                                            <div id="taquestion1b99" class="block iDevice_content">
+                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿Que gobierno financio el proyecto exelearning?</b></span></span></span></span></p>
+                                            </div>
+                                            <section class="iDevice_answers">
+                                                <h1 class="js-sr-av">Respuestas</h1>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key1b991" class="sr-av"><a href="#answer-key1b991">Opción 1</a></label><input type="radio" name="key1b99" id="key1b991" value="0" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key1b991">
+                                                        <div id="taoptionAnswer0q1b99" class="block iDevice_content">
+                                                            <p>Nueva zelanda</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key1b992" class="sr-av"><a href="#answer-key1b992">Opción 2</a></label><input type="radio" name="key1b99" id="key1b992" value="1" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key1b992">
+                                                        <div id="taoptionAnswer1q1b99" class="block iDevice_content">
+                                                            <p>Peru</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key1b993" class="sr-av"><a href="#answer-key1b993">Opción 3</a></label><input type="radio" name="key1b99" id="key1b993" value="2" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key1b993">
+                                                        <div id="taoptionAnswer2q1b99" class="block iDevice_content">
+                                                            <p>china</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key1b994" class="sr-av"><a href="#answer-key1b994">Opción 4</a></label><input type="radio" name="key1b99" id="key1b994" value="3" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key1b994">
+                                                        <div id="taoptionAnswer3q1b99" class="block iDevice_content">
+                                                            <p>iran</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </section>
+                                        </section>
+                                        <section class="question">
+                                            <h1 class="js-sr-av">Pregunta</h1>
+                                            <div id="taquestion2b99" class="block iDevice_content">
+                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿Exelearning es la herramienta de autor más completa del mercado?</b></span></span></span></span></p>
+                                            </div>
+                                            <section class="iDevice_answers">
+                                                <h1 class="js-sr-av">Respuestas</h1>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key2b991" class="sr-av"><a href="#answer-key2b991">Opción 1</a></label><input type="radio" name="key2b99" id="key2b991" value="0" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key2b991">
+                                                        <div id="taoptionAnswer0q2b99" class="block iDevice_content">
                                                             <p>F</p>
                                                         </div>
                                                     </div>
                                                 </section>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key0b1002" class="sr-av"><a href="#answer-key0b1002">Opción 2</a></label><input type="radio" name="key0b100" id="key0b1002" value="1" />
+                                                        <label for="key2b992" class="sr-av"><a href="#answer-key2b992">Opción 2</a></label><input type="radio" name="key2b99" id="key2b992" value="1" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key0b1002">
-                                                        <div id="taoptionAnswer1q0b100" class="block iDevice_content">
+                                                    <div class="iDevice_answer-content" id="answer-key2b992">
+                                                        <div id="taoptionAnswer1q2b99" class="block iDevice_content">
                                                             <p>V</p>
                                                         </div>
                                                     </div>
@@ -253,28 +347,48 @@
                                         </section>
                                         <section class="question">
                                             <h1 class="js-sr-av">Pregunta</h1>
-                                            <div id="taquestion1b100" class="block iDevice_content">
-                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿Reload tiene como función empaquetar contenidos creados con otras herramientas?</b></span></span></span></span></p>
+                                            <div id="taquestion3b99" class="block iDevice_content">
+                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>Al abrir eXeLearning cuantas zonas hay</b></span></span></span></span></p>
                                             </div>
                                             <section class="iDevice_answers">
                                                 <h1 class="js-sr-av">Respuestas</h1>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key1b1001" class="sr-av"><a href="#answer-key1b1001">Opción 1</a></label><input type="radio" name="key1b100" id="key1b1001" value="0" />
+                                                        <label for="key3b991" class="sr-av"><a href="#answer-key3b991">Opción 1</a></label><input type="radio" name="key3b99" id="key3b991" value="0" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key1b1001">
-                                                        <div id="taoptionAnswer0q1b100" class="block iDevice_content">
-                                                            <p>F</p>
+                                                    <div class="iDevice_answer-content" id="answer-key3b991">
+                                                        <div id="taoptionAnswer0q3b99" class="block iDevice_content">
+                                                            <p>7</p>
                                                         </div>
                                                     </div>
                                                 </section>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key1b1002" class="sr-av"><a href="#answer-key1b1002">Opción 2</a></label><input type="radio" name="key1b100" id="key1b1002" value="1" />
+                                                        <label for="key3b992" class="sr-av"><a href="#answer-key3b992">Opción 2</a></label><input type="radio" name="key3b99" id="key3b992" value="1" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key1b1002">
-                                                        <div id="taoptionAnswer1q1b100" class="block iDevice_content">
-                                                            <p>V</p>
+                                                    <div class="iDevice_answer-content" id="answer-key3b992">
+                                                        <div id="taoptionAnswer1q3b99" class="block iDevice_content">
+                                                            <p>2</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key3b993" class="sr-av"><a href="#answer-key3b993">Opción 3</a></label><input type="radio" name="key3b99" id="key3b993" value="2" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key3b993">
+                                                        <div id="taoptionAnswer2q3b99" class="block iDevice_content">
+                                                            <p>4</p>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <section class="iDevice_answer">
+                                                    <p class="iDevice_answer-field js-required">
+                                                        <label for="key3b994" class="sr-av"><a href="#answer-key3b994">Opción 4</a></label><input type="radio" name="key3b99" id="key3b994" value="3" />
+                                                    </p>
+                                                    <div class="iDevice_answer-content" id="answer-key3b994">
+                                                        <div id="taoptionAnswer3q3b99" class="block iDevice_content">
+                                                            <p>gúgol^gúgol </p>
                                                         </div>
                                                     </div>
                                                 </section>
@@ -282,56 +396,27 @@
                                         </section>
                                         <section class="question">
                                             <h1 class="js-sr-av">Pregunta</h1>
-                                            <div id="taquestion2b100" class="block iDevice_content">
-                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿El proyecto de Reload Editor es una aplicación libre la cual puedes descargar y utilizar gratuitamente desde su web?</b></span></span></span></span></p>
+                                            <div id="taquestion4b99" class="block iDevice_content">
+                                                <p>EXE-learning permite exportar en html</p>
                                             </div>
                                             <section class="iDevice_answers">
                                                 <h1 class="js-sr-av">Respuestas</h1>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key2b1001" class="sr-av"><a href="#answer-key2b1001">Opción 1</a></label><input type="radio" name="key2b100" id="key2b1001" value="0" />
+                                                        <label for="key4b991" class="sr-av"><a href="#answer-key4b991">Opción 1</a></label><input type="radio" name="key4b99" id="key4b991" value="0" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key2b1001">
-                                                        <div id="taoptionAnswer0q2b100" class="block iDevice_content">
+                                                    <div class="iDevice_answer-content" id="answer-key4b991">
+                                                        <div id="taoptionAnswer0q4b99" class="block iDevice_content">
                                                             <p>F</p>
                                                         </div>
                                                     </div>
                                                 </section>
                                                 <section class="iDevice_answer">
                                                     <p class="iDevice_answer-field js-required">
-                                                        <label for="key2b1002" class="sr-av"><a href="#answer-key2b1002">Opción 2</a></label><input type="radio" name="key2b100" id="key2b1002" value="1" />
+                                                        <label for="key4b992" class="sr-av"><a href="#answer-key4b992">Opción 2</a></label><input type="radio" name="key4b99" id="key4b992" value="1" />
                                                     </p>
-                                                    <div class="iDevice_answer-content" id="answer-key2b1002">
-                                                        <div id="taoptionAnswer1q2b100" class="block iDevice_content">
-                                                            <p>V</p>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </section>
-                                        </section>
-                                        <section class="question">
-                                            <h1 class="js-sr-av">Pregunta</h1>
-                                            <div id="taquestion3b100" class="block iDevice_content">
-                                                <p align="justify"><span><span style="color: #000000;"><span style="font-family: Arial, serif;"><span style="font-size: medium;"><b>¿Reload Editor Permite modificar, editar y construir paquetes SCORM e IMS para manejar tus contenidos?</b></span></span></span></span></p>
-                                            </div>
-                                            <section class="iDevice_answers">
-                                                <h1 class="js-sr-av">Respuestas</h1>
-                                                <section class="iDevice_answer">
-                                                    <p class="iDevice_answer-field js-required">
-                                                        <label for="key3b1001" class="sr-av"><a href="#answer-key3b1001">Opción 1</a></label><input type="radio" name="key3b100" id="key3b1001" value="0" />
-                                                    </p>
-                                                    <div class="iDevice_answer-content" id="answer-key3b1001">
-                                                        <div id="taoptionAnswer0q3b100" class="block iDevice_content">
-                                                            <p>F</p>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                                <section class="iDevice_answer">
-                                                    <p class="iDevice_answer-field js-required">
-                                                        <label for="key3b1002" class="sr-av"><a href="#answer-key3b1002">Opción 2</a></label><input type="radio" name="key3b100" id="key3b1002" value="1" />
-                                                    </p>
-                                                    <div class="iDevice_answer-content" id="answer-key3b1002">
-                                                        <div id="taoptionAnswer1q3b100" class="block iDevice_content">
+                                                    <div class="iDevice_answer-content" id="answer-key4b992">
+                                                        <div id="taoptionAnswer1q4b99" class="block iDevice_content">
                                                             <p>V</p>
                                                         </div>
                                                     </div>
@@ -341,7 +426,7 @@
                                         <div class="block iDevice_buttons">
                                             <p><input type="submit" name="submitB" value="ENVIAR RESPUESTAS" /> <span class="js-hidden js-warning">Habilitar JavaScript</span></p>
                                         </div>
-                                        <div id="quizFormScore100"></div>
+                                        <div id="quizFormScore99"></div>
                                     </form>
                                 </div>
                             </div>
@@ -354,7 +439,7 @@
             </div>
             <div id='bottomPagination'>
                 <nav class="pagination noprt">
-                    <a href="conociendo_reload_editor.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="scorm.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+                    <a href="idevices.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="reload.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
                 </nav>
             </div>
         </div>
