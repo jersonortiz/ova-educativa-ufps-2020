@@ -155,7 +155,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <div class="row"  v-show="muestrapregestud!=true" >
         <div class="col-12">
 
 
@@ -266,11 +266,14 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-
                 <div class="col-4">
                   <button  class="btn btn-block btn-info" v-on:click="regresalistar">Regresar</button>
                 </div>
+
+
+              </div>
+
+                
 
               </div>
               <!-- /.lista estudiantes -->
