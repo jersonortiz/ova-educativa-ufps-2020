@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="es">
     <head>
+        <script src="../../../dist/js/config.js"></script>
+        <script src="../../../dist/js/responfunc.js"></script>
         <link rel="stylesheet" type="text/css" href="base.css" />
         <link rel="stylesheet" type="text/css" href="content.css" />
         <link rel="stylesheet" type="text/css" href="nav.css" />
@@ -140,6 +142,13 @@
                             var question4;
                             var question5;
                             var question6;
+                            var question0key=32;
+                            var question1key=33;
+                            var question2key=34;
+                            var question3key=35;
+                            var question4key=36;
+                            var question5key=37;
+                            var question6key=38;
                             var key0 = 0;
                             var key1 = 3;
                             var key2 = 2;
@@ -245,6 +254,60 @@
 
                             }
 
+                           function sendbd(actualScore){
+                                console.log('hola')
+                                data={
+                                    puntaje: actualScore,
+                                    respuestas : [
+                                    {
+                                        resp:question0,
+                                        bdkey:question0key,
+                                        key:key0
+                                    },
+                                    {
+                                        resp:question1,
+                                        bdkey:question1key,
+                                        key:key1
+                                    },
+                                    {
+                                        resp:question2,
+                                        bdkey:question2key,
+                                        key:key2
+                                    },
+                                    {
+                                        resp:question3,
+                                        bdkey:question3key,
+                                        key:key3
+                                    },
+                                    {
+                                        resp:question4,
+                                        bdkey:question4key,
+                                        key:key4
+                                    },
+                                    {
+                                        resp:question5,
+                                        bdkey:question5key,
+                                        key:key5
+                                    },
+                                    {
+                                        resp:question6,
+                                        bdkey:question6key,
+                                        key:key6
+                                    },
+                                    {
+                                        resp:question7,
+                                        bdkey:question7key,
+                                        key:key7
+                                    }
+
+                                    ]
+
+                                } 
+
+                                responsesend(data)
+
+                            }
+
                             function calcScore2()
                             {
                                 getAnswer();
@@ -258,6 +321,7 @@
                                 msg_str = msg_str.replace("%d", actualScore).replace("%%", "%");            if (s) {
                                     s.innerHTML = "<div class='feedback'><p>" + msg_str + "</p></div>"; } else {
                                     alert(msg_str); }
+                                sendbd(actualScore)
 
                             }
                             /*]]>*/</script>
